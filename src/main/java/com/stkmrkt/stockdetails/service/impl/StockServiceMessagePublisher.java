@@ -1,4 +1,4 @@
-package com.stkmrkt.stockdetails.service.impl;
+/*package com.stkmrkt.stockdetails.service.impl;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,3 +18,4 @@ public class StockServiceMessagePublisher {
         return "Success !!";
     }
 }
+*/

@@ -26,8 +26,8 @@ public class StockDetailServiceImpl implements StockDetailService {
 	@Autowired
 	StockDetailRepository repository;
 	
-	@Autowired
-	StockServiceMessagePublisher publish;
+	//@Autowired
+	//StockServiceMessagePublisher publish;
 	
 	@Autowired
 	StockServiceEntityMapper mapper;
@@ -35,10 +35,11 @@ public class StockDetailServiceImpl implements StockDetailService {
 	@Override
 	public StockDetailResponse saveCompanyStock(StockDetailRequest request) {
 		StockDetailEntity entity = mapper.stockDetailsRequestMapper(request);
-		publish.publishCompanyStockDetails(entity);
+		StockDetailEntity result = repository.save(entity);
+		//publish.publishCompanyStockDetails(entity);
 		StockDetailResponse response = new StockDetailResponse();
-		//response.setId(result.getId().toString());
-		response.setResponseID("123456");
+		response.setId(result.getId().toString());
+		response.setResponseID(result.getId().toString());
 		response.setResponseMsg("Stock saved successfully");
 		return response;
 	}

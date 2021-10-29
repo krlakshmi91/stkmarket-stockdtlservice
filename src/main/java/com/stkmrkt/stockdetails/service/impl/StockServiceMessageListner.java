@@ -1,4 +1,4 @@
-package com.stkmrkt.stockdetails.service.impl;
+/*package com.stkmrkt.stockdetails.service.impl;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,3 +22,4 @@ public class StockServiceMessageListner {
     }
 	
 }
+*/

@@ -1,0 +1,41 @@
+server:
+  port: 8083
+  
+spring:
+  profiles:
+    active:
+    - local
+ 
+  jmx:
+    enabled: true
+  application:
+    name: stkmarket-stockdtlservice
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "*" 
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    tags:
+      application: stkmarket-stockdtlservice
+---
+
+spring:
+  profiles: local
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: stkmarket_stocks
+#      username: myNormalUser
+#      password: abc123
+
+#  rabbitmq:
+#    host: 172.18.1.247
+#    port: 5672
+#    username: guest
+#    password: guest

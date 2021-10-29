@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include
+		resource="org/springframework/boot/logging/logback/base.xml" />
+	<!-- <springProperty scope="context" name="rabbitMQHost" source="logback.amqp.host" 
+		defaultValue="localhost"/> <springProperty scope="context" name="rabbitMQPort" 
+		source="logback.amqp.port" defaultValue="5672"/> <springProperty scope="context" 
+		name="rabbitMQUsername" source="spring.rabbitmq.username" /> <springProperty 
+		scope="context" name="rabbitMQPassword" source="spring.rabbitmq.password" 
+		/> <springProperty scope="context" name="rabbitMQExchangeName" source="logback.amqp.exchange.name" 
+		defaultValue="mpi.tradedev"/> <springProperty scope="context" name="rabbitMQRoutingKey" 
+		source="logback.amqp.routing.key" defaultValue="mpi.tradedev.logging"/> <springProperty 
+		scope="context" name="serviceName" source="spring.application.name" /> -->
+	<appender name="AMQP"
+		class="org.springframework.amqp.rabbit.logback.AmqpAppender">
+		<layout>
+			<pattern><![CDATA[ %d %p %t [%c] - <%m>%n ]]></pattern>
+		</layout>
+
+		<!-- RabbitMQ connection -->
+		<host>localhost</host>
+		<port>5672</port>
+		<username>guest</username>
+		<password>guest</password>
+
+		<applicationId>ojha-stock-service</applicationId>
+		<routingKeyPattern>ojha-stock-service</routingKeyPattern>
+		<declareExchange>true</declareExchange>
+		<exchangeType>topic</exchangeType>
+		<exchangeName>ojha_stocks_logstash</exchangeName>
+
+		<generateId>true</generateId>
+		<charset>UTF-8</charset>
+		<durable>true</durable>
+		<deliveryMode>PERSISTENT</deliveryMode>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="AMQP" />
+	</root>
+
+</configuration>

@@ -1,4 +1,4 @@
-package com.stkmrkt.stockdetails.configuration;
+/*package com.stkmrkt.stockdetails.configuration;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -42,3 +42,4 @@ public class StockServiceMessagingConfig {
         return rabbitTemplate;
     }
 }
+*/
