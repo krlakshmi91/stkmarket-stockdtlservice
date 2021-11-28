@@ -39,8 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping(value = API_CONTEXT_ROOT, produces = { MediaType.APPLICATION_JSON_VALUE, }, consumes = {
-		MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(value = API_CONTEXT_ROOT, produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
 @Api(value = STOCK_DETAILS_CONTROLLER, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class StockDetailsController {
 
@@ -49,7 +48,7 @@ public class StockDetailsController {
 
 	@ApiOperation(value = SAVE_COMPANY_STOCK_URI, notes = "This API is used to save the stock detail of a compnay")
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Stock detail saved successfully", response = StockDetailResponse.class) })
+			@ApiResponse(code = 200, message = "Stock detail saved successfully", response = StockDetailResponse.class)})
 	@PostMapping(SAVE_COMPANY_STOCK_URI)
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "HTTP_AUTH_TOKEN", value = "JWT token header", required = false, dataType = "String", paramType = "header") })
